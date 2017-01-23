@@ -9,8 +9,14 @@ import {SpotifyServices } from '../service/spotify.services';
 export class SearchsComponent  { 
 		searchStr:string;
 
+		constructor(private _spotifyService:SpotifyServices){
+
+		}
+
 		searchMusic(){
-			console.log(this.searchStr);
+			this._spotifyService.searchMusic(this.searchStr).subscribe(res =>{
+				console.log(res.artists.items);
+							});
 
 		}
  }
