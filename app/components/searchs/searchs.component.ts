@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SpotifyServices } from '../service/spotify.services';
 
 @Component({
 	moduleId: module.id,
