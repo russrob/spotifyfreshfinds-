@@ -9,6 +9,7 @@ export class SpotifyServices {
 	private searchUrl: string;
 	private artistUrl: string;
 	private albumsUrl: string;
+	private albumUrl: string;
 
 	constructor(private _http:Http){
 
@@ -27,6 +28,12 @@ export class SpotifyServices {
 	}
 	getAlbums(artistId:string){
 		this.albumsUrl = 'https://api.spotify.com/v1/artists/'+artistId+'/albums';
+		return this._http.get(this.albumsUrl)
+		.map(res => res.json());
+
+	}
+	getAlbum(Id:string){
+		this.albumUrl = 'https://api.spotify.com/v1/albums/'+Id;
 		return this._http.get(this.albumsUrl)
 		.map(res => res.json());
 
